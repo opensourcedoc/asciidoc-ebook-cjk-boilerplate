@@ -24,20 +24,20 @@ Clone the project locally and change your working directory accordingly:
 > cd my-ebook
 ----
 
-Initialize the project:
+Migrate the project:
 
 [,shell]
 ----
-> init.bat
+> migrate.bat
 ----
 
 Several files are generated. Keep the template files _as is_.
 
-Modify _parameters.yml_ as needed. Update the parameters of the ebook in the project:
+Modify _parameters.yml_ as needed. Migrate the parameters of the ebook in the project:
 
 [,shell]
 ----
-> ruby update.rb
+> ruby migrate.rb
 ----
 
 To compile an EPUB ebook:

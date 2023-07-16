@@ -2,6 +2,11 @@
 rem Compile a PDF ebook for print.
 
 
+rem Get working directory of current batch script.
+set cwd=%~dp0
+rem Get the root path of the project.
+set root=%cwd%
+
 rem Set the input file.
 set input=print.adoc
 if not exist %input% (
@@ -15,4 +20,4 @@ where asciidoctor-pdf >nul || (
 )
 
 rem Compile AsciiDoc source(s) into a PDF ebook.
-asciidoctor-pdf -a pdf-theme=cjk-theme.yml -a pdf-fontsdir=. -o book-print.pdf %input%
+asciidoctor-pdf -a pdf-theme=cjk-theme.yml -a pdf-fontsdir=. -o %root%\ebook-print.pdf %root%\%input%

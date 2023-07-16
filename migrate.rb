@@ -6,10 +6,11 @@ require 'yaml'
 def file_fallback (file)
     _file = file
 
+    dirname = File.dirname(_file)
     basename = File.basename(_file, ".*")
     extension = File.extname(_file)
     unless File.exists?(_file)
-        _file = "#{basename}.template#{extension}"
+        _file = File.join(dirname, "#{basename}.template#{extension}")
     end
 
     return _file
@@ -30,7 +31,10 @@ def write_file (file, content)
 end
 
 
-parameter_file = file_fallback("parameters.yml")
+cwd = File.dirname(__FILE__)
+root = cwd
+
+parameter_file = file_fallback(File.join(root, "parameters.yml"))
 File.exists?(parameter_file) or abort "No parameter configuration available '#{$parameter_file}': #{$!}"
 
 parameters = YAML.load_file(parameter_file)
@@ -42,9 +46,19 @@ lang = parameters["lang"]
 toc = parameters["toc"]
 
 
-books = [file_fallback("epub.adoc"), file_fallback("pdf.adoc"), file_fallback("print.adoc")]
-scripts = ["epub.bat", "mobi.bat", "pdf.bat"]
-scripts_print = ["print.bat"]
+books = [
+    file_fallback(File.join(root, "epub.adoc")),
+    file_fallback(File.join(root, "pdf.adoc")),
+    file_fallback(File.join(root, "print.adoc"))
+]
+scripts = [
+    File.join(root, "epub.bat"),
+    File.join(root, "mobi.bat"),
+    File.join(root, "pdf.bat")
+]
+scripts_print = [
+    File.join(root, "print.bat")
+]
 
 books.each do |book|
     content = read_file book
