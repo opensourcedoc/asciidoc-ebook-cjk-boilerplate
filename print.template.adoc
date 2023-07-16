@@ -1,0 +1,10 @@
+= Book Title
+:doctype: book
+:author: Book Author
+:docdate: 2023-07-16
+:lang: zh-TW
+:scripts: cjk
+:source-highlighter: rouge
+:toc:
+:toc-title: Table of Contents
+:media: print

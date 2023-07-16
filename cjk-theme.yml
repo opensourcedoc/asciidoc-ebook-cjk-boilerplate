@@ -1,0 +1,17 @@
+extends: default
+font:
+  catalog:
+    merge: true
+    Sarasa Sans TC: sarasa-gothic-tc-regular.ttf
+    Sarasa Sans Mono TC: sarasa-mono-tc-regular.ttf
+fallbacks:
+  - Sarasa Sans TC
+base:
+  text-align: left
+  font-family: Sarasa Sans TC
+codespan:
+  font-family: Sarasa Sans Mono TC
+kbd:
+  font-family: $codespan-font-family
+code:
+  font-family: $codespan-font-family

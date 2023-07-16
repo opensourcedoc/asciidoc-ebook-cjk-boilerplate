@@ -1,0 +1,92 @@
+= AsciiDoc eBook Boilerplate for CJK
+
+== Synopsis
+
+Boilerplate project to generate eBook with AsciiDoctor toolchain.
+
+== System Requirements
+
+* A recent link:https://www.ruby-lang.org/[Ruby]
+* link:https://asciidoctor.org/[AsciiDoctor]
+* link:https://github.com/asciidoctor/asciidoctor-pdf[AsciiDoctor PDF]
+* link:https://github.com/asciidoctor/asciidoctor-epub3[AsciiDoctor EPUB3]
+* link:https://github.com/tdtds/kindlegen[kindlegen] gem
+
+== Usage
+
+=== Windows
+
+Clone the project locally and change your working directory accordingly:
+
+[,shell]
+----
+> git clone https://github.com/opensourcedoc/asciidoc-ebook-cjk-boilerplate.git my-ebook
+> cd my-ebook
+----
+
+Initialize the project:
+
+[,shell]
+----
+> init.bat
+----
+
+Several files are generated. Keep the template files _as is_.
+
+Modify _parameters.yml_ as needed. Update the parameters of the ebook in the project:
+
+[,shell]
+----
+> ruby update.rb
+----
+
+To compile an EPUB ebook:
+
+[,shell]
+----
+> epub.bat
+----
+
+To compile a MOBI ebook:
+
+[,shell]
+----
+> mobi.bat
+----
+
+An intermediate EPUB ebook is compiled as well.
+
+To compile a PDF ebook:
+
+[,shell]
+----
+> pdf.bat
+----
+
+To compile a PDF ebook for print:
+
+[,shell]
+----
+> print.bat
+----
+
+Clean all ebooks:
+
+[,shell]
+----
+> clean.bat
+----
+
+=== Unix
+
+Pending.
+
+== Note
+
+You have to edit _epub.adoc_, _pdf.adoc_ and _print.adoc_ separately to generate ebooks of different file formats, which is the limitation imposed by AsciiDoctor toolchain currently.
+
+== Copyright
+
+The boilerplate project itself is licensed under MIT.
+
+You keep your own the ebooks compiled with the project in any license you prefer.
