@@ -1,5 +1,6 @@
 # Update the parameters of the ebook in the project.
 
+require 'fileutils'
 require 'yaml'
 
 
@@ -54,10 +55,14 @@ books = [
 scripts = [
     File.join(root, "epub.bat"),
     File.join(root, "mobi.bat"),
-    File.join(root, "pdf.bat")
+    File.join(root, "pdf.bat"),
+    File.join(root, "epub"),
+    File.join(root, "mobi"),
+    File.join(root, "pdf")
 ]
 scripts_print = [
-    File.join(root, "print.bat")
+    File.join(root, "print.bat"),
+    File.join(root, "print")
 ]
 
 books.each do |book|
@@ -83,6 +88,10 @@ scripts.each do |script|
     write_file script, content
 end
 
+FileUtils.chmod("+x", File.join(root, "epub"))
+FileUtils.chmod("+x", File.join(root, "mobi"))
+FileUtils.chmod("+x", File.join(root, "pdf"))
+
 scripts_print.each do |script|
     content = read_file script
 
@@ -91,3 +100,5 @@ scripts_print.each do |script|
 
     write_file script, content
 end
+
+FileUtils.chmod("+x", File.join(root, "print"))

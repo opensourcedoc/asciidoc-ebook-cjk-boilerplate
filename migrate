@@ -1,0 +1,13 @@
+#!/bin/sh
+# Migrate the project.
+
+
+# Get working directory of current shell script.
+cwd="$(dirname $0)"
+# Get the root path of the project.
+root="${cwd}"
+
+cp -f "${root}/epub.template.adoc" "${root}/epub.adoc"
+cp -f "${root}/pdf.template.adoc" "${root}/pdf.adoc"
+cp -f "${root}/print.template.adoc" "${root}/print.adoc"
+cp -f "${root}/parameters.template.yml" "${root}/parameters.yml"

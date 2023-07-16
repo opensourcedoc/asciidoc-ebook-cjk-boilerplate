@@ -1,0 +1,10 @@
+#!/bin/sh
+
+
+# Get working directory of current shell script.
+cwd="$(dirname $0)"
+# Get the root path of the project.
+root="${cwd}"
+
+# Clean all ebook(s).
+rm -f "${root}"/*.epub "${root}"/*.mobi "${root}"/*.pdf

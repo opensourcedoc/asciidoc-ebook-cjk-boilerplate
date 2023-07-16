@@ -79,7 +79,66 @@ Clean all ebooks:
 
 === Unix
 
-Pending.
+Clone the project locally and change your working directory accordingly:
+
+[,shell]
+----
+$ git clone https://github.com/opensourcedoc/asciidoc-ebook-cjk-boilerplate.git my-ebook
+$ cd my-ebook
+----
+
+Migrate the project:
+
+[,shell]
+----
+$ ./migrate
+----
+
+Several files are generated. Keep the template files _as is_.
+
+Modify _parameters.yml_ as needed. Migrate the parameters of the ebook in the project:
+
+[,shell]
+----
+$ ruby migrate.rb
+----
+
+To compile an EPUB ebook:
+
+[,shell]
+----
+$ ./epub
+----
+
+To compile a MOBI ebook:
+
+[,shell]
+----
+$ ./mobi
+----
+
+An intermediate EPUB ebook is compiled as well.
+
+To compile a PDF ebook:
+
+[,shell]
+----
+$ ./pdf
+----
+
+To compile a PDF ebook for print:
+
+[,shell]
+----
+$ ./print
+----
+
+Clean all ebooks:
+
+[,shell]
+----
+$ ./clean
+----
 
 == Note
 

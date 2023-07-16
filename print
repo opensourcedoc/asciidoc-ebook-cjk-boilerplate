@@ -1,0 +1,23 @@
+#!/bin/sh
+# Compile a PDF ebook for print.
+
+
+# Get working directory of current shell script.
+cwd=$(dirname $0)
+# Get the root path of the project.
+root=${cwd}
+
+# Set the input file.
+input="print.adoc"
+if ! [ -f "${root}/${input}" ]; then
+    input="print.template.adoc"
+fi
+
+# Check whether AsciiDoctor PDF is available.
+if ! command -v asciidoctor-pdf 2>&1 1>/dev/null; then
+    echo "No AsciiDoctor PDF on the system" >&2
+    exit 1
+fi
+
+# Compile AsciiDoc source(s) into a PDF ebook.
+asciidoctor-pdf -a pdf-theme=cjk-theme.yml -a pdf-fontsdir=. -o "${root}/book-print.pdf" "${root}/${input}"

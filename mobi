@@ -1,0 +1,23 @@
+#!/bin/sh
+# Compile a MOBI ebook.
+
+
+# Get working directory of current shell script.
+cwd=$(dirname $0)
+# Get the root path of the project.
+root=${cwd}
+
+# Set the input file.
+input="epub.adoc"
+if ! [ -f "${root}/${input}" ]; then
+    input="epub.template.adoc"
+fi
+
+# Check whether AsciiDoctor EPUB is available.
+if ! command -v asciidoctor-epub3 2>&1 1>/dev/null; then
+    echo "No AsciiDoctor EPUB on the system" >&2
+    exit 1
+fi
+
+# Compile AsciiDoc source(s) into a MOBI ebook.
+asciidoctor-epub3 -a ebook-format=kf8 -o "${root}/book.epub" "${root}/${input}"

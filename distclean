@@ -1,0 +1,11 @@
+#!/bin/sh
+
+
+# Get working directory of current shell script.
+cwd="$(dirname $0)"
+# Get the root path of the project.
+root="${cwd}"
+
+# Restore the project to its original state.
+rm -f "${root}/epub.adoc" "${root}/pdf.adoc" "${root}/print.adoc" "${root}/parameters.yml"
+rm -f "${root}"/*.epub "${root}"/*.mobi "${root}"/*.pdf
