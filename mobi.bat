@@ -9,7 +9,7 @@ set root=%cwd%
 
 rem Set the input file.
 set input=epub.adoc
-if not exist %input% (
+if not exist %root%\%input% (
     set input=epub.template.adoc
 )
 
@@ -20,4 +20,4 @@ where asciidoctor-epub3 >nul || (
 )
 
 rem Compile AsciiDoc source(s) into a MOBI ebook.
-asciidoctor-epub3 -a ebook-format=kf8 -o %root%\ebook.mobi %root%\%input%
+asciidoctor-epub3 -a ebook-format=kf8 -o %root%\book.mobi %root%\%input%

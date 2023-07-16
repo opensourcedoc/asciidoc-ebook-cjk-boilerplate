@@ -9,7 +9,7 @@ set root=%cwd%
 
 rem Set the input file.
 set input=pdf.adoc
-if not exist %input% (
+if not exist %root%\%input% (
     set input=pdf.template.adoc
 )
 
@@ -20,4 +20,4 @@ where asciidoctor-pdf >nul || (
 )
 
 rem Compile AsciiDoc source(s) into a PDF ebook.
-asciidoctor-pdf -a pdf-theme=cjk-theme.yml -a pdf-fontsdir=. -o %root%\ebook.pdf %root%\%input%
+asciidoctor-pdf -a pdf-theme=cjk-theme.yml -a pdf-fontsdir=. -o %root%\book.pdf %root%\%input%
