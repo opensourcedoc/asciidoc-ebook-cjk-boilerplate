@@ -43,6 +43,7 @@ parameters = YAML.load_file(parameter_file)
 file = parameters["file"]
 title = parameters["title"]
 author = parameters["author"]
+date = parameters["date"]
 lang = parameters["lang"]
 toc = parameters["toc"]
 
@@ -71,6 +72,7 @@ books.each do |book|
     content = content
         .gsub(/= .*/,"= #{title}")
         .gsub(/:author: .*/, ":author: #{author}")
+        .gsub(/:docdate: .*/, ":docdate: #{date}")
         .gsub(/:lang: .*/, ":lang: #{lang}")
         .gsub(/:toc-title: .*/, ":toc-title: #{toc}")
 
