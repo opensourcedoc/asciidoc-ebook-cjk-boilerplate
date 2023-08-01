@@ -148,4 +148,4 @@ You have to edit _epub.adoc_, _pdf.adoc_ and _print.adoc_ separately to generate
 
 The boilerplate project itself is licensed under MIT.
 
-You keep your own the ebooks compiled with the project in any license you prefer.
+You keep your own ebooks compiled with the boilerplate in any license you prefer.
