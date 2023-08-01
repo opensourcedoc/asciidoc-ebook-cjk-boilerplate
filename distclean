@@ -8,4 +8,5 @@ root="${cwd}"
 
 # Restore the project to its original state.
 rm -f "${root}/epub.adoc" "${root}/pdf.adoc" "${root}/print.adoc" "${root}/parameters.yml"
+rm -f "${root}/epub" "${root}/mobi" "${root}/pdf" "${root}/print"
 rm -f "${root}"/*.epub "${root}"/*.mobi "${root}"/*.pdf

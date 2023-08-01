@@ -11,3 +11,8 @@ cp -f "${root}/epub.template.adoc" "${root}/epub.adoc"
 cp -f "${root}/pdf.template.adoc" "${root}/pdf.adoc"
 cp -f "${root}/print.template.adoc" "${root}/print.adoc"
 cp -f "${root}/parameters.template.yml" "${root}/parameters.yml"
+
+cp -p -f "${root}/epub.template" "${root}/epub"
+cp -p -f "${root}/mobi.template" "${root}/mobi"
+cp -p -f "${root}/pdf.template" "${root}/pdf"
+cp -p -f "${root}/print.template" "${root}/print"

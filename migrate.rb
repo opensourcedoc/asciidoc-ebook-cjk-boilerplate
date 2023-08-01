@@ -1,6 +1,7 @@
 # Update the parameters of the ebook in the project.
 
 require 'fileutils'
+require 'rbconfig'
 require 'yaml'
 
 
@@ -10,7 +11,7 @@ def file_fallback (file)
     dirname = File.dirname(_file)
     basename = File.basename(_file, ".*")
     extension = File.extname(_file)
-    unless File.exists?(_file)
+    unless File.exist?(_file)
         _file = File.join(dirname, "#{basename}.template#{extension}")
     end
 
@@ -36,7 +37,7 @@ cwd = File.dirname(__FILE__)
 root = cwd
 
 parameter_file = file_fallback(File.join(root, "parameters.yml"))
-File.exists?(parameter_file) or abort "No parameter configuration available '#{$parameter_file}': #{$!}"
+File.exist?(parameter_file) or abort "No parameter configuration available '#{$parameter_file}': #{$!}"
 
 parameters = YAML.load_file(parameter_file)
 
@@ -53,18 +54,30 @@ books = [
     file_fallback(File.join(root, "pdf.adoc")),
     file_fallback(File.join(root, "print.adoc"))
 ]
+
+is_windows = (RbConfig::CONFIG['host_os'] =~ /mswin/)
+
+if is_windows then
 scripts = [
     file_fallback(File.join(root, "epub.bat")),
     file_fallback(File.join(root, "mobi.bat")),
-    file_fallback(File.join(root, "pdf.bat")),
+    file_fallback(File.join(root, "pdf.bat"))
+]
+
+scripts_print = [
+    file_fallback(File.join(root, "print.bat"))
+]
+else
+scripts = [
     file_fallback(File.join(root, "epub")),
     file_fallback(File.join(root, "mobi")),
     file_fallback(File.join(root, "pdf"))
 ]
+
 scripts_print = [
-    file_fallback(File.join(root, "print.bat")),
     file_fallback(File.join(root, "print"))
 ]
+end
 
 books.each do |book|
     content = read_file book
@@ -90,9 +103,9 @@ scripts.each do |script|
     write_file script, content
 end
 
-FileUtils.chmod("+x", File.join(root, "epub"))
-FileUtils.chmod("+x", File.join(root, "mobi"))
-FileUtils.chmod("+x", File.join(root, "pdf"))
+FileUtils.chmod("+x", file_fallback(File.join(root, "epub")))
+FileUtils.chmod("+x", file_fallback(File.join(root, "mobi")))
+FileUtils.chmod("+x", file_fallback(File.join(root, "pdf")))
 
 scripts_print.each do |script|
     content = read_file script
@@ -103,4 +116,4 @@ scripts_print.each do |script|
     write_file script, content
 end
 
-FileUtils.chmod("+x", File.join(root, "print"))
+FileUtils.chmod("+x", file_fallback(File.join(root, "print")))
