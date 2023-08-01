@@ -8,4 +8,5 @@ set root=%cwd%
 
 rem Restore the project to its original state.
 del /Q /F %root%\epub.adoc %root%\pdf.adoc %root%\print.adoc %root%\parameters.yml
+del /Q /F %root%\epub.bat %root%\mobi.bat %root%\pdf.bat %root%\print.bat
 del /Q /F %root%\*.epub %root%\*.mobi %root%\*.pdf
