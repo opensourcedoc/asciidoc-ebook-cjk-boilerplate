@@ -54,16 +54,16 @@ books = [
     file_fallback(File.join(root, "print.adoc"))
 ]
 scripts = [
-    File.join(root, "epub.bat"),
-    File.join(root, "mobi.bat"),
-    File.join(root, "pdf.bat"),
-    File.join(root, "epub"),
-    File.join(root, "mobi"),
-    File.join(root, "pdf")
+    file_fallback(File.join(root, "epub.bat")),
+    file_fallback(File.join(root, "mobi.bat")),
+    file_fallback(File.join(root, "pdf.bat")),
+    file_fallback(File.join(root, "epub")),
+    file_fallback(File.join(root, "mobi")),
+    file_fallback(File.join(root, "pdf"))
 ]
 scripts_print = [
-    File.join(root, "print.bat"),
-    File.join(root, "print")
+    file_fallback(File.join(root, "print.bat")),
+    file_fallback(File.join(root, "print"))
 ]
 
 books.each do |book|
