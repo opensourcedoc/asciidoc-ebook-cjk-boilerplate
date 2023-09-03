@@ -55,7 +55,7 @@ books = [
     file_fallback(File.join(root, "print.adoc"))
 ]
 
-is_windows = (RbConfig::CONFIG['host_os'] =~ /mswin/)
+is_windows = (RbConfig::CONFIG['host_os'] =~ /mswin|mingw|cygwin/)
 
 if is_windows then
 scripts = [
