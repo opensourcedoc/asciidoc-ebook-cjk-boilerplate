@@ -1,0 +1,17 @@
+extends: default
+font:
+  catalog:
+    merge: true
+    WenQuanYi Zen Hei: wqy-zenhei.ttc
+    Roboto Mono: roboto-mono-regular.ttf
+fallbacks:
+  - WenQuanYi Zen Hei
+base:
+  text-align: left
+  font-family: WenQuanYi Zen Hei
+codespan:
+  font-family: Roboto Mono
+kbd:
+  font-family: $codespan-font-family
+code:
+  font-family: $codespan-font-family

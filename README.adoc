@@ -140,6 +140,20 @@ Clean all ebooks:
 $ ./clean
 ----
 
+== eBooks with Mixed Chinese and English Text
+
+Sarasa gothic TC font doesn't support ebooks with mixed Chinese and English text well. Ebooks with sarasa font will be rendered with incorrect line wrapping sometimes.
+
+If you are writing an ebook with mixed Chinese and English, use WenQuanYi Zen Hei instead.
+
+Migrate the CJK theme:
+
+```shell
+$ cp cjk-wqy-theme.yml cjk-theme.yml
+```
+
+Ebooks with sarasa font look better. Hence, we keep both. It is up to you to choose a font that suits your ebook.
+
 == Note
 
 You have to edit _epub.adoc_, _pdf.adoc_ and _print.adoc_ separately to generate ebooks of different file formats, which is the limitation imposed by AsciiDoctor toolchain currently.
