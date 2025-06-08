@@ -2,7 +2,16 @@
 
 == Synopsis
 
-Boilerplate project to generate eBook with AsciiDoctor toolchain.
+A minimal yet powerful boilerplate for generating clean, multi-format eBooks (EPUB, MOBI, PDF, print) using the AsciiDoctor toolchain — with full support for Chinese, Japanese, and Korean (CJK) text.
+
+This project provides:
+
+* Clean separation of content and layout
+* Automatic project scaffolding and theming
+* Unicode-friendly font presets for East Asian mixed-language typesetting
+* Support for EPUB, MOBI, and PDF output with a unified build process
+
+Whether you're writing technical guides, translated texts, or bilingual books, this boilerplate helps you get started quickly — without having to reinvent the toolchain.
 
 == System Requirements
 
