@@ -11,7 +11,7 @@ This project provides:
 * Unicode-friendly font presets for East Asian mixed-language typesetting
 * Support for EPUB, MOBI, and PDF output with a unified build process
 
-Whether you're writing technical guides, translated texts, or bilingual books, this boilerplate helps you get started quickly — without having to reinvent the toolchain.
+Whether you're writing technical guides, translated texts, or bilingual books, this boilerplate helps you get started quickly — without having to assemble the toolchain yourself.
 
 == System Requirements
 
@@ -42,7 +42,7 @@ Migrate the project:
 
 Several files are generated. Keep the template files _as is_.
 
-Modify _parameters.yml_ as needed. Migrate the parameters of the ebook in the project:
+Modify _parameters.yml_ as needed. Then migrate the ebook parameters into the project:
 
 [,shell]
 ----
@@ -63,7 +63,7 @@ To compile a MOBI ebook:
 > mobi.bat
 ----
 
-An intermediate EPUB ebook is compiled as well.
+An intermediate EPUB file will be generated as well.
 
 To compile a PDF ebook:
 
@@ -79,7 +79,7 @@ To compile a PDF ebook for print:
 > print.bat
 ----
 
-Clean all ebooks:
+Clean all generated ebooks:
 
 [,shell]
 ----
@@ -105,7 +105,7 @@ $ ./migrate
 
 Several files are generated. Keep the template files _as is_.
 
-Modify _parameters.yml_ as needed. Migrate the parameters of the ebook in the project:
+Modify _parameters.yml_ as needed. Then migrate the ebook parameters into the project:
 
 [,shell]
 ----
@@ -126,7 +126,7 @@ To compile a MOBI ebook:
 $ ./mobi
 ----
 
-An intermediate EPUB ebook is compiled as well.
+An intermediate EPUB file will be generated as well.
 
 To compile a PDF ebook:
 
@@ -142,7 +142,7 @@ To compile a PDF ebook for print:
 $ ./print
 ----
 
-Clean all ebooks:
+Clean all generated ebooks:
 
 [,shell]
 ----
@@ -151,24 +151,25 @@ $ ./clean
 
 == eBooks with Mixed Chinese and English Text
 
-Sarasa gothic TC font doesn't support ebooks with mixed Chinese and English text well. Ebooks with sarasa font will be rendered with incorrect line wrapping sometimes.
+Sarasa Gothic TC does not handle mixed Chinese–English text well in some ebook readers. In such cases, line wrapping may behave incorrectly.
 
-If you are writing an ebook with mixed Chinese and English, use WenQuanYi Zen Hei instead.
+If your ebook contains significant mixed Chinese and English text, consider using WenQuanYi Zen Hei instead.
 
-Migrate the CJK theme:
+Switch the CJK theme:
 
-```shell
+[,shell]
+----
 $ cp cjk-wqy-theme.yml cjk-theme.yml
-```
+----
 
-Ebooks with sarasa font look better. Hence, we keep both. It is up to you to choose a font that suits your ebook.
+Sarasa generally produces more visually pleasing results, so it remains the default. Both themes are included so that you can choose the one that best suits your ebook.
 
 == Note
 
-You have to edit _epub.adoc_, _pdf.adoc_ and _print.adoc_ separately to generate ebooks of different file formats, which is the limitation imposed by AsciiDoctor toolchain currently.
+You must edit _epub.adoc_, _pdf.adoc_, and _print.adoc_ separately to generate ebooks for different output formats. This limitation is imposed by the current AsciiDoctor toolchain.
 
 == Copyright
 
 The boilerplate project itself is licensed under MIT.
 
-You keep your own ebooks compiled with the boilerplate in any license you prefer.
+You may license ebooks generated with this boilerplate under any license you prefer.
